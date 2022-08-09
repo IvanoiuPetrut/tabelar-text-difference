@@ -1,0 +1,7 @@
+.tables__wrapper {
+  display: flex;
+}
+
+.table {
+  border: 1px solid #333;
+}

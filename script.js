@@ -1,33 +1,51 @@
 const textArea1 = document.getElementById("text1");
 const textArea2 = document.getElementById("text2");
+const table1 = document.getElementById("table--1");
+const table2 = document.getElementById("table--2");
+const tableWrapper = document.getElementById("table--wrapper");
 const checkDiffBtn = document.getElementById("check-diff-btn");
 
-// get the text from the textarea and put it in the second textarea
-let text = `hellow                 world how are you
-today is a good day`;
-// add event listener to check diff button
 checkDiffBtn.addEventListener("click", function () {
-  console.log(textToArray(text, "\n"));
-  let newText = textToArray(textArea1.value, "\n");
-  console.log(newText);
-  newText[0] = removeWhiteSpace(newText[0]);
-  console.log(newText);
+  if (textArea1.value.length > 0 && textArea2.value.length > 0) {
+    let newText1 = textToArray(textArea1.value, "\n");
+    let newText2 = textToArray(textArea2.value, "\n");
+
+    for (let i = 0; i < newText1.length; i++) {
+      newText1[i] = removeWhiteSpace(newText1[i]);
+      newText1[i] = newText1[i].split(" ");
+    }
+    for (let i = 0; i < newText2.length; i++) {
+      newText2[i] = removeWhiteSpace(newText2[i]);
+      newText2[i] = newText2[i].split(" ");
+    }
+    removeTableBody(table1);
+    removeTableBody(table2);
+    table1.appendChild(generateTableBody(newText1));
+    table2.appendChild(generateTableBody(newText2));
+  }
+  console.log(hasTableBody(table1));
+  console.log(hasTableBody(table2));
 });
+
+function hasTextArea(textArea) {
+  if (textArea.value.length > 0) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
 function textToArray(text, separator = " ") {
   let textArray = text.split(separator);
   return textArray;
 }
 
-// create a function that removes the white space from the text
 function removeWhiteSpace(text) {
   let newText = text.replace(/\s+/g, " ");
   return newText;
 }
 
-// create a function that generates a table
-function generateTable(data) {
-  const tbl = document.createElement("table");
+function generateTableBody(data) {
   const tblBody = document.createElement("tbody");
 
   for (let i = 0; i < data.length; i++) {
@@ -40,8 +58,19 @@ function generateTable(data) {
     }
     tblBody.appendChild(row);
   }
+  return tblBody;
+}
 
-  tbl.appendChild(tblBody);
-  document.body.appendChild(tbl);
-  tbl.setAttribute("border", "2");
+function hasTableBody(table) {
+  if (table.getElementsByTagName("tbody").length > 0) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function removeTableBody(table) {
+  if (hasTableBody(table)) {
+    table.removeChild(table.getElementsByTagName("tbody")[0]);
+  }
 }
