@@ -4,12 +4,20 @@
   box-sizing: border-box;
 }
 
+:root {
+  --main-bg-color: rgb(31, 40, 57);
+  --secondary-bg-color: rgb(50, 60, 80);
+  --main-text-color: #f8f9fa;
+}
+
 html {
   font-size: 62.5%;
 }
 
 body {
   font-family: "Poppins", sans-serif;
+  background-color: var(--main-bg-color);
+  color: var(--main-text-color);
 }
 
 .text__section {
@@ -26,8 +34,6 @@ body {
   align-items: center;
   justify-content: center;
   width: 80%;
-  padding: 2rem;
-  background-color: #f5f5f5;
 }
 
 .text__title {
@@ -40,15 +46,47 @@ body {
   font-size: 1.6rem;
   line-height: 1.5;
   text-align: justify;
+  border-radius: 11px;
   width: 100%;
+  padding: 1.5rem;
+  color: inherit;
+  background-color: var(--secondary-bg-color);
+  border: 2px solid var(--main-text-color);
 }
 
 .tables__wrapper {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 12.8rem;
+  margin-top: 5rem;
 }
 
 .table {
-  border: 1px solid #333;
+  font-size: 1.8rem;
+  border-collapse: collapse;
+  width: 60%;
+  background-color: var(--secondary-bg-color);
+}
+
+.table td {
+  padding: 0.8rem 1.6rem;
+  text-align: center;
+  border: 3px solid var(--main-bg-color);
+  /* border: 1px solid #333; */
+}
+
+.table tr:nth-child(even) {
+  /* background-color: #f5f5f5;
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #333; */
+}
+
+.table:first-child {
+  justify-self: end;
+}
+
+.table:last-child {
+  justify-self: start;
 }
 
 .btn {
@@ -75,10 +113,10 @@ body {
   display: flex;
   justify-content: center;
   gap: 2rem;
-  margin-top: 3.2rem;
+  margin-top: 5rem;
 }
 
 .highlight {
-  background-color: rgba(144, 228, 48, 0.511);
-  color: rgb(5, 83, 19);
+  /* background-color: rgba(144, 228, 48, 0.511);
+  color: rgb(5, 83, 19); */
 }
