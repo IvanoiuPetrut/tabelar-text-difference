@@ -9,10 +9,10 @@
     <script src="script.js" defer></script>
   </head>
   <body>
-    <h1>Text diff</h1>
-    <div class="text">
-      <div class="text__section">
-        <h2>First Text</h2>
+    <h1>Text difference</h1>
+    <section class="text__section">
+      <div class="text__box">
+        <label for="text1" class="text__title">Text 1</label>
         <textarea
           name="text__area--first"
           class="text__area"
@@ -21,8 +21,8 @@
           rows="10"
         ></textarea>
       </div>
-      <div class="text__section">
-        <h2>Second Text</h2>
+      <div class="text__box">
+        <label for="text2" class="text__title">Text 2</label>
         <textarea
           name="text__area--second"
           class="text__area"
@@ -31,8 +31,11 @@
           rows="10"
         ></textarea>
       </div>
+    </section>
+    <div class="btn__wrapper">
+      <button id="check-diff-btn" class="btn">Check Difference</button>
+      <button id="clear-btn" class="btn">Clear</button>
     </div>
-    <button id="check-diff-btn" class="btn">Check Diff</button>
     <div id="table--wrapper" class="tables__wrapper">
       <table class="table" id="table--1"></table>
       <table class="table" id="table--2"></table>
