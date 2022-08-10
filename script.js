@@ -22,9 +22,8 @@ checkDiffBtn.addEventListener("click", function () {
     removeTableBody(table2);
     table1.appendChild(generateTableBody(newText1));
     table2.appendChild(generateTableBody(newText2));
+    checkIfTdExists(table1, table2);
   }
-  console.log(hasTableBody(table1));
-  console.log(hasTableBody(table2));
 });
 
 function hasTextArea(textArea) {
@@ -72,5 +71,18 @@ function hasTableBody(table) {
 function removeTableBody(table) {
   if (hasTableBody(table)) {
     table.removeChild(table.getElementsByTagName("tbody")[0]);
+  }
+}
+
+function checkIfTdExists(table1, table2) {
+  let td1 = table1.getElementsByTagName("td");
+  let td2 = table2.getElementsByTagName("td");
+  for (let i = 0; i < td1.length; i++) {
+    for (let j = 0; j < td2.length; j++) {
+      if (td1[i].innerHTML === td2[j].innerHTML) {
+        td1[i].classList.add("highlight");
+        td2[j].classList.add("highlight");
+      }
+    }
   }
 }
