@@ -22,8 +22,7 @@ checkDiffBtn.addEventListener("click", function () {
     removeTableBody(table2);
     table1.appendChild(generateTableBody(newText1));
     table2.appendChild(generateTableBody(newText2));
-    // checkIfTdExists(table1, table2);
-    compareTables(table1, table2);
+    compareTable(table1, table2);
   }
 });
 
@@ -75,57 +74,34 @@ function removeTableBody(table) {
   }
 }
 
-function checkIfTdExists(table1, table2) {
-  let td1 = table1.getElementsByTagName("td");
-  let td2 = table2.getElementsByTagName("td");
-  for (let i = 0; i < td1.length; i++) {
-    for (let j = 0; j < td2.length; j++) {
-      if (td1[i].innerHTML === td2[j].innerHTML) {
-        td1[i].classList.add("highlight");
-        td2[j].classList.add("highlight");
+function compareTable(table1, table2) {
+  const rowsTable1 = table1.getElementsByTagName("tr");
+  const rowsTable2 = table2.getElementsByTagName("tr");
+  for (let i = 0; i < rowsTable1.length; i++) {
+    for (let j = 0; j < rowsTable2.length; j++) {
+      if (compareFirstTd(rowsTable1[i], rowsTable2[j])) {
+        setTdStyle(rowsTable1[i], "highlight-td--first-success");
+        setTdStyle(rowsTable2[j], "highlight-td--first-success");
+        break;
+      } else {
+        setTdStyle(rowsTable1[i], "highlight-td--first-fail");
+        setTdStyle(rowsTable2[j], "highlight-td--first-fail");
       }
     }
   }
 }
 
-function compareTables(table1, table2) {
-  let rows1 = table1.getElementsByTagName("tr");
-  let rows2 = table2.getElementsByTagName("tr");
-  checkIfRowHasSameTd(rows1, rows2);
-}
-
-// function that checks if the row has the same td as the other row
-function checkIfRowHasSameTd(rows1, rows2) {
-  for (let i = 0; i < rows1.length; i++) {
-    for (let j = 0; j < rows2.length; j++) {
-      if (compareRowsFirstTd(rows1[i], rows2[j])) {
-        rows1[i].classList.add("highlight--row");
-        rows2[j].classList.add("highlight--row");
-      }
-    }
-  }
-}
-
-function compareRowsFirstTd(row1, row2) {
-  let td1 = row1.getElementsByTagName("td");
-  let td2 = row2.getElementsByTagName("td");
-  if (td1[0].innerHTML === td2[0].innerHTML) {
+function compareFirstTd(row1, row2) {
+  const firstTd1 = row1.getElementsByTagName("td")[0];
+  const firstTd2 = row2.getElementsByTagName("td")[0];
+  if (firstTd1.innerHTML == firstTd2.innerHTML) {
     return true;
   } else {
     return false;
   }
 }
 
-// first find a row that has the first td the same as in another row first td
-function findRowWithSameTd(table1, table2) {
-  let td1 = table1.getElementsByTagName("td");
-  let td2 = table2.getElementsByTagName("td");
-  for (let i = 0; i < td1.length; i++) {
-    for (let j = 0; j < td2.length; j++) {
-      if (td1[i].innerHTML === td2[j].innerHTML) {
-        return true;
-      }
-    }
-  }
-  return false;
+function setTdStyle(row, style) {
+  const td = row.getElementsByTagName("td")[0];
+  td.classList.add(style);
 }
