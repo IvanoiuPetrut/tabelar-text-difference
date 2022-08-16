@@ -7,7 +7,7 @@
 
 ## How to Use
 
-- The tool is available at [https://tabelar.com](https://tabelar.com).
+- The tool is available at [https://ivanoiupetrut.github.io/tabelar-text-difference/](https://ivanoiupetrut.github.io/tabelar-text-difference/).
 - The tool is a single page application. It does not require any installation or configuration.
 - The tool is designed to be used in a web browser. It has been tested in the latest versions of Chrome, Firefox, and Safari.
 
