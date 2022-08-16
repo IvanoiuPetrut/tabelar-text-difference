@@ -13,6 +13,8 @@
   --main-color-transparent: rgba(0, 208, 156, 0.2);
   --accent-color: #ffc107;
   --accent-color-transparent: rgba(255, 176, 7, 0.2);
+  --success-color: rgb(67, 252, 101);
+  --success-color-transparent: rgba(67, 252, 101, 0.2);
 }
 
 html {
@@ -102,16 +104,20 @@ body {
 
 .table {
   font-size: 1.8rem;
-  border-collapse: collapse;
+  border-collapse: separate;
   width: 60%;
-  background-color: var(--secondary-bg-color);
+  /* background-color: var(--secondary-bg-color); */
 }
 
 .table td {
   padding: 0.8rem 1.6rem;
   text-align: center;
-  border: 3px solid var(--main-bg-color);
+  /* border: 3px solid var(--main-bg-color); */
   /* border: 1px solid #333; */
+}
+
+.table tr {
+  background-color: var(--secondary-bg-color);
 }
 
 .table tr:nth-child(even) {
@@ -159,4 +165,9 @@ body {
 .highlight {
   background-color: rgba(67, 252, 101, 0.2);
   color: rgb(67, 252, 101);
+}
+
+.highlight--td {
+  /* box-shadow: 0px 0px 0px 10px var(--main-color-transparent); */
+  border-left: 6px solid red;
 }
