@@ -7,32 +7,57 @@ const checkDiffBtn = document.getElementById("check-diff-btn");
 const clearBtn = document.getElementById("clear-btn");
 
 checkDiffBtn.addEventListener("click", function () {
-  if (textArea1.value.length > 0 && textArea2.value.length > 0) {
-    let newText1 = textToArray(textArea1.value, "\n");
-    let newText2 = textToArray(textArea2.value, "\n");
+  try {
+    if (textArea1.value.length == 0 || textArea2.value.length == 0) {
+      throw (notification = new Notification(
+        "Please enter text in both text areas",
+        false
+      ));
+    }
+    if (textArea1.value.length > 0 && textArea2.value.length > 0) {
+      let newText1 = textToArray(textArea1.value, "\n");
+      let newText2 = textToArray(textArea2.value, "\n");
 
-    for (let i = 0; i < newText1.length; i++) {
-      newText1[i] = removeWhiteSpace(newText1[i]);
-      newText1[i] = newText1[i].split(" ");
+      for (let i = 0; i < newText1.length; i++) {
+        newText1[i] = removeWhiteSpace(newText1[i]);
+        newText1[i] = newText1[i].split(" ");
+      }
+      for (let i = 0; i < newText2.length; i++) {
+        newText2[i] = removeWhiteSpace(newText2[i]);
+        newText2[i] = newText2[i].split(" ");
+      }
+      removeTableBody(table1);
+      removeTableBody(table2);
+      table1.appendChild(generateTableBody(newText1));
+      table2.appendChild(generateTableBody(newText2));
+      compareTable(table1, table2);
+      throw (notification = new Notification("Comparison successful", true));
     }
-    for (let i = 0; i < newText2.length; i++) {
-      newText2[i] = removeWhiteSpace(newText2[i]);
-      newText2[i] = newText2[i].split(" ");
-    }
-    removeTableBody(table1);
-    removeTableBody(table2);
-    table1.appendChild(generateTableBody(newText1));
-    table2.appendChild(generateTableBody(newText2));
-    compareTable(table1, table2);
+  } catch (error) {
+    displayNotification(error.message, error.success);
   }
 });
 
 clearBtn.addEventListener("click", function () {
-  clearTextArea(textArea1);
-  clearTextArea(textArea2);
-  removeTableBody(table1);
-  removeTableBody(table2);
+  try {
+    if (textArea1.value.length > 0 || textArea2.value.length > 0) {
+      clearTextArea(textArea1);
+      clearTextArea(textArea2);
+      removeTableBody(table1);
+      removeTableBody(table2);
+      throw (notification = new Notification("Text areas cleared", true));
+    }
+  } catch (error) {
+    displayNotification(error.message, error.success);
+  }
 });
+
+class Notification {
+  constructor(message, success) {
+    this.message = message;
+    this.success = success;
+  }
+}
 
 function hasTextArea(textArea) {
   if (textArea.value.length > 0) {
@@ -150,4 +175,23 @@ function setFirstTdStyle(row, style) {
 
 function clearTextArea(textArea) {
   textArea.value = "";
+}
+
+function displayNotification(message, success) {
+  const notification = document.getElementById("notification");
+  const notificationText = document.getElementById("notification-text");
+  notificationText.innerHTML = message;
+  console.log(success);
+  success
+    ? notification.classList.add("notification--success")
+    : notification.classList.add("notification--fail");
+  notification.classList.add("notification--show");
+  setTimeout(function () {
+    notification.classList.remove("notification--show");
+  }, 2500);
+  setTimeout(function () {
+    notificationText.innerHTML = "";
+    notification.classList.remove("notification--success");
+    notification.classList.remove("notification--fail");
+  }, 3000);
 }

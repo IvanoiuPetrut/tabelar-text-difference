@@ -199,3 +199,40 @@ body {
 .highlight-td--first-success {
   border-left: 6px solid var(--success-color);
 }
+
+.notification {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  position: fixed;
+  top: -10%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2.4rem;
+  border-radius: 7px;
+  padding: 1.2rem 2.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  transition: all 0.3s ease-in-out;
+}
+
+.notification--show {
+  top: 10%;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}
+
+.notification--fail {
+  background-color: var(--fail-color-transparent);
+  color: var(--fail-color);
+  border-left: 7px solid var(--fail-color);
+}
+
+.notification--success {
+  background-color: var(--success-color-transparent);
+  color: var(--success-color);
+  border-left: 7px solid var(--success-color);
+}
