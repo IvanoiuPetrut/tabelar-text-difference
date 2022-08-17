@@ -164,14 +164,14 @@ body {
   margin-top: 5rem;
 }
 
-.highlight {
-  background-color: rgba(67, 252, 101, 0.2);
-  color: rgb(67, 252, 101);
+.highlight-td--fail {
+  background-color: var(--fail-color-transparent);
+  color: var(--fail-color);
 }
 
 .highlight-td {
-  background-color: rgba(67, 252, 101, 0.2);
-  color: rgb(67, 252, 101);
+  background-color: var(--success-color-transparent);
+  color: var(--success-color);
 }
 
 .highlight-td--first-fail {

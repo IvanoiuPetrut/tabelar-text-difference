@@ -82,6 +82,7 @@ function compareTable(table1, table2) {
       if (compareFirstTd(rowsTable1[i], rowsTable2[j])) {
         setFirstTdStyle(rowsTable1[i], "highlight-td--first-success");
         setFirstTdStyle(rowsTable2[j], "highlight-td--first-success");
+        compareAllTd(rowsTable1[i], rowsTable2[j]);
       }
       if (!compareFirstTd(rowsTable1[i], rowsTable2[j])) {
         if (
@@ -117,11 +118,21 @@ function compareAllTd(row1, row2) {
   const td1 = row1.getElementsByTagName("td");
   const td2 = row2.getElementsByTagName("td");
   for (let i = 0; i < td1.length; i++) {
-    if (td1[i].innerHTML != td2[i].innerHTML) {
-      return false;
+    for (let j = 0; j < td2.length; j++) {
+      if (td1[i].innerHTML == td2[j].innerHTML) {
+        td1[i].classList.add("highlight-td");
+        td2[j].classList.add("highlight-td");
+      }
+      if (td1[i].innerHTML != td2[j].innerHTML) {
+        if (!td1[i].classList.contains("highlight-td")) {
+          td1[i].classList.add("highlight-td--fail");
+        }
+        if (!td2[j].classList.contains("highlight-td")) {
+          td2[j].classList.add("highlight-td--fail");
+        }
+      }
     }
   }
-  return true;
 }
 
 function setFirstTdStyle(row, style) {
