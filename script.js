@@ -80,9 +80,8 @@ function compareTable(table1, table2) {
   for (let i = 0; i < rowsTable1.length; i++) {
     for (let j = 0; j < rowsTable2.length; j++) {
       if (compareFirstTd(rowsTable1[i], rowsTable2[j])) {
-        setTdStyle(rowsTable1[i], "highlight-td--first-success");
-        setTdStyle(rowsTable2[j], "highlight-td--first-success");
-        console.log("success");
+        setFirstTdStyle(rowsTable1[i], "highlight-td--first-success");
+        setFirstTdStyle(rowsTable2[j], "highlight-td--first-success");
       }
       if (!compareFirstTd(rowsTable1[i], rowsTable2[j])) {
         if (
@@ -90,14 +89,14 @@ function compareTable(table1, table2) {
             .getElementsByTagName("td")[0]
             .classList.contains("highlight-td--first-success")
         ) {
-          setTdStyle(rowsTable1[i], "highlight-td--first-fail");
+          setFirstTdStyle(rowsTable1[i], "highlight-td--first-fail");
         }
         if (
           !rowsTable2[j]
             .getElementsByTagName("td")[0]
             .classList.contains("highlight-td--first-success")
         ) {
-          setTdStyle(rowsTable2[j], "highlight-td--first-fail");
+          setFirstTdStyle(rowsTable2[j], "highlight-td--first-fail");
         }
       }
     }
@@ -114,7 +113,18 @@ function compareFirstTd(row1, row2) {
   }
 }
 
-function setTdStyle(row, style) {
+function compareAllTd(row1, row2) {
+  const td1 = row1.getElementsByTagName("td");
+  const td2 = row2.getElementsByTagName("td");
+  for (let i = 0; i < td1.length; i++) {
+    if (td1[i].innerHTML != td2[i].innerHTML) {
+      return false;
+    }
+  }
+  return true;
+}
+
+function setFirstTdStyle(row, style) {
   const td = row.getElementsByTagName("td")[0];
   td.classList.add(style);
 }
