@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="CSS/style.css" />
+    <link rel="stylesheet" href="CSS/queries.css" />
     <script src="script.js" defer></script>
   </head>
   <body>
@@ -43,9 +44,18 @@
       <button id="check-diff-btn" class="btn">Check Difference</button>
       <button id="clear-btn" class="btn">Clear</button>
     </div>
-    <div id="table--wrapper" class="tables__wrapper">
-      <table class="table" id="table--1"></table>
-      <table class="table" id="table--2"></table>
-    </div>
+    <section id="table--wrapper" class="tables__section">
+      <h2 class="section__title">Resulted tables</h2>
+      <div class="table__wrapper">
+        <div class="table">
+          <h3 class="table__title">Table 1</h3>
+          <table class="table__data" id="table--1"></table>
+        </div>
+        <div class="table">
+          <h3 class="table__title">Table 2</h3>
+          <table class="table__data" id="table--2"></table>
+        </div>
+      </div>
+    </section>
   </body>
 </html>

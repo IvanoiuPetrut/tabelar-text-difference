@@ -181,7 +181,6 @@ function displayNotification(message, success) {
   const notification = document.getElementById("notification");
   const notificationText = document.getElementById("notification-text");
   notificationText.innerHTML = message;
-  console.log(success);
   success
     ? notification.classList.add("notification--success")
     : notification.classList.add("notification--fail");
