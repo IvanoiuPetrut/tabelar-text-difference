@@ -82,10 +82,23 @@ function compareTable(table1, table2) {
       if (compareFirstTd(rowsTable1[i], rowsTable2[j])) {
         setTdStyle(rowsTable1[i], "highlight-td--first-success");
         setTdStyle(rowsTable2[j], "highlight-td--first-success");
-        break;
-      } else {
-        setTdStyle(rowsTable1[i], "highlight-td--first-fail");
-        setTdStyle(rowsTable2[j], "highlight-td--first-fail");
+        console.log("success");
+      }
+      if (!compareFirstTd(rowsTable1[i], rowsTable2[j])) {
+        if (
+          !rowsTable1[i]
+            .getElementsByTagName("td")[0]
+            .classList.contains("highlight-td--first-success")
+        ) {
+          setTdStyle(rowsTable1[i], "highlight-td--first-fail");
+        }
+        if (
+          !rowsTable2[j]
+            .getElementsByTagName("td")[0]
+            .classList.contains("highlight-td--first-success")
+        ) {
+          setTdStyle(rowsTable2[j], "highlight-td--first-fail");
+        }
       }
     }
   }
