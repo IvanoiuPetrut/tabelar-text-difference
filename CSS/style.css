@@ -273,3 +273,8 @@ body {
   color: var(--success-color);
   border-left: 7px solid var(--success-color);
 }
+
+.hidden {
+  display: none;
+  pointer-events: none;
+}

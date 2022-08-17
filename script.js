@@ -31,6 +31,9 @@ checkDiffBtn.addEventListener("click", function () {
       table1.appendChild(generateTableBody(newText1));
       table2.appendChild(generateTableBody(newText2));
       compareTable(table1, table2);
+      if (tableWrapper.classList.contains("hidden")) {
+        toggleVisibility(tableWrapper);
+      }
       throw (notification = new Notification("Comparison successful", true));
     }
   } catch (error) {
@@ -40,6 +43,13 @@ checkDiffBtn.addEventListener("click", function () {
 
 clearBtn.addEventListener("click", function () {
   try {
+    if (
+      textArea1.value.length > 0 &&
+      textArea2.value.length > 0 &&
+      !tableWrapper.classList.contains("hidden")
+    ) {
+      toggleVisibility(tableWrapper);
+    }
     if (textArea1.value.length > 0 || textArea2.value.length > 0) {
       clearTextArea(textArea1);
       clearTextArea(textArea2);
@@ -193,4 +203,8 @@ function displayNotification(message, success) {
     notification.classList.remove("notification--success");
     notification.classList.remove("notification--fail");
   }, 3000);
+}
+
+function toggleVisibility(element) {
+  element.classList.toggle("hidden");
 }
