@@ -4,6 +4,7 @@ const table1 = document.getElementById("table--1");
 const table2 = document.getElementById("table--2");
 const tableWrapper = document.getElementById("table--wrapper");
 const checkDiffBtn = document.getElementById("check-diff-btn");
+const clearBtn = document.getElementById("clear-btn");
 
 checkDiffBtn.addEventListener("click", function () {
   if (textArea1.value.length > 0 && textArea2.value.length > 0) {
@@ -24,6 +25,13 @@ checkDiffBtn.addEventListener("click", function () {
     table2.appendChild(generateTableBody(newText2));
     compareTable(table1, table2);
   }
+});
+
+clearBtn.addEventListener("click", function () {
+  clearTextArea(textArea1);
+  clearTextArea(textArea2);
+  removeTableBody(table1);
+  removeTableBody(table2);
 });
 
 function hasTextArea(textArea) {
@@ -138,4 +146,8 @@ function compareAllTd(row1, row2) {
 function setFirstTdStyle(row, style) {
   const td = row.getElementsByTagName("td")[0];
   td.classList.add(style);
+}
+
+function clearTextArea(textArea) {
+  textArea.value = "";
 }
