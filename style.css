@@ -29,6 +29,24 @@ body {
   color: var(--main-text-color);
 }
 
+.lnk {
+  text-decoration: none;
+  color: var(--main-color);
+}
+
+.heading--primary {
+  font-size: 3.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  text-align: center;
+  color: var(--main-color);
+  background-color: var(--secondary-bg-color);
+  box-shadow: 0 0rem 2rem rgba(0, 0, 0, 0.1);
+  padding: 1.8rem 0;
+  margin-bottom: 2rem;
+}
+
 .text__section {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -48,7 +66,7 @@ body {
 .text__title {
   font-size: 3.2rem;
   font-weight: 600;
-  margin-bottom: 3.2rem;
+  margin-bottom: 3.6rem;
   position: relative;
 }
 
