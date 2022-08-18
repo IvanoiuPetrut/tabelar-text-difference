@@ -5,6 +5,7 @@ const table2 = document.getElementById("table--2");
 const tableWrapper = document.getElementById("table--wrapper");
 const checkDiffBtn = document.getElementById("check-diff-btn");
 const clearBtn = document.getElementById("clear-btn");
+const howToUseBtn = document.getElementById("how-to-use-btn");
 
 checkDiffBtn.addEventListener("click", function () {
   try {

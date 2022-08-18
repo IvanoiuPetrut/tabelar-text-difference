@@ -10,24 +10,63 @@
     <script src="script.js" defer></script>
   </head>
   <body>
-    <h1 class="heading--primary">
-      <a href="#" class="lnk">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="icon"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          stroke-width="2"
+    <nav class="nav">
+      <h1 class="heading--primary">
+        <a href="#" class="lnk">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
+            /></svg
+          >Compare Tables</a
         >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
-          /></svg
-        >Compare Tables</a
-      >
-    </h1>
+      </h1>
+      <button id="how-to-use-btn" class="btn">How to use</button>
+    </nav>
+    <section class="how-to-use__section">
+      <h3 class="section__title">How to use</h3>
+      <div class="how-to-use__step">
+        <h4 class="how-to-use__title">Expected input</h4>
+        <img
+          src="Resources/Images/expected-input.webp"
+          alt="Two text areas with input data, one for each table, no spaces between the values only between the columns, new line for each row"
+          width="900"
+          class="how-to-use__img"
+        />
+      </div>
+      <div class="how-to-use__step">
+        <h4 class="how-to-use__title">Expected output</h4>
+        <img
+          src="Resources/Images/expected-output.webp"
+          alt="Two tables with the output, table cell with the same value are highlighted in green, table cell with different values are highlighted in red, table row with no match has a red border, table row with a match has a green border"
+          width="900"
+          class="how-to-use__img"
+        />
+      </div>
+      <div class="how-to-use__step">
+        <h4 class="how-to-use__title">How to read the output</h4>
+        <div class="how-to-use__explanation">
+          <span class="highlight-td">Cell match</span>
+          <span class="highlight-td--first-success bg--secondary"
+            >Row match</span
+          >
+          <span class="highlight-td--fail">Cell not match</span>
+          <span class="highlight-td--first-fail bg--secondary"
+            >Row not match</span
+          >
+        </div>
+        <button id="close-btn" class="btn">Close</button>
+        <button id="more-info-btn" class="btn">More Information</button>
+      </div>
+    </section>
     <div id="notification" class="notification">
       <p id="notification-text" class="notification__text">Succesful</p>
     </div>

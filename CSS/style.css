@@ -39,6 +39,16 @@ body {
   width: 3.2rem;
 }
 
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--secondary-bg-color);
+  box-shadow: 0 0rem 2rem rgba(0, 0, 0, 0.1);
+  padding: 1.6rem 9.8rem;
+  margin-bottom: 2rem;
+}
+
 .heading--primary {
   font-size: 3.6rem;
   font-weight: 700;
@@ -46,10 +56,6 @@ body {
   letter-spacing: 0.2rem;
   text-align: center;
   color: var(--main-text-color);
-  background-color: var(--secondary-bg-color);
-  box-shadow: 0 0rem 2rem rgba(0, 0, 0, 0.1);
-  padding: 1.8rem 0;
-  margin-bottom: 2rem;
 }
 
 .heading--primary .lnk {
@@ -64,6 +70,49 @@ body {
   color: var(--main-color);
   height: 4.8rem;
   width: 4.8rem;
+}
+
+.how-to-use__section {
+  position: fixed;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1500px;
+  background-color: var(--main-bg-color);
+  border-radius: 7px;
+  z-index: 999;
+}
+
+.how-to-use__title {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.2rem;
+  color: var(--main-text-color);
+  margin-bottom: 3.2rem;
+}
+
+.how-to-use__explanation {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  justify-items: center;
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--main-text-color);
+}
+
+.how-to-use__explanation span {
+  padding: 0.5rem 1rem;
+}
+
+.bg--secondary {
+  background-color: var(--secondary-bg-color);
 }
 
 .text__section {
