@@ -6,6 +6,8 @@ const tableWrapper = document.getElementById("table--wrapper");
 const checkDiffBtn = document.getElementById("check-diff-btn");
 const clearBtn = document.getElementById("clear-btn");
 const howToUseBtn = document.getElementById("how-to-use-btn");
+const closeHowToUseBtn = document.getElementById("close-how-to-use-btn");
+const howToUseWrapper = document.getElementById("how-to-use-wrapper");
 
 checkDiffBtn.addEventListener("click", function () {
   try {
@@ -60,6 +62,21 @@ clearBtn.addEventListener("click", function () {
     }
   } catch (error) {
     displayNotification(error.message, error.success);
+  }
+});
+
+howToUseBtn.addEventListener("click", function () {
+  toggleVisibility(document.getElementById("how-to-use-wrapper"));
+});
+
+closeHowToUseBtn.addEventListener("click", function () {
+  toggleVisibility(document.getElementById("how-to-use-wrapper"));
+});
+
+howToUseWrapper.addEventListener("click", function (event) {
+  if (event.target == howToUseWrapper) {
+    toggleVisibility(howToUseWrapper);
+    console.log("clicked");
   }
 });
 

@@ -31,42 +31,52 @@
       </h1>
       <button id="how-to-use-btn" class="btn">How to use</button>
     </nav>
-    <section class="how-to-use__section">
-      <h3 class="section__title">How to use</h3>
-      <div class="how-to-use__step">
-        <h4 class="how-to-use__title">Expected input</h4>
-        <img
-          src="Resources/Images/expected-input.webp"
-          alt="Two text areas with input data, one for each table, no spaces between the values only between the columns, new line for each row"
-          width="900"
-          class="how-to-use__img"
-        />
-      </div>
-      <div class="how-to-use__step">
-        <h4 class="how-to-use__title">Expected output</h4>
-        <img
-          src="Resources/Images/expected-output.webp"
-          alt="Two tables with the output, table cell with the same value are highlighted in green, table cell with different values are highlighted in red, table row with no match has a red border, table row with a match has a green border"
-          width="900"
-          class="how-to-use__img"
-        />
-      </div>
-      <div class="how-to-use__step">
-        <h4 class="how-to-use__title">How to read the output</h4>
-        <div class="how-to-use__explanation">
-          <span class="highlight-td">Cell match</span>
-          <span class="highlight-td--first-success bg--secondary"
-            >Row match</span
-          >
-          <span class="highlight-td--fail">Cell not match</span>
-          <span class="highlight-td--first-fail bg--secondary"
-            >Row not match</span
-          >
+    <div id="how-to-use-wrapper" class="how-to-use__wrapper hidden">
+      <section id="how-to-use" class="how-to-use__section">
+        <header class="how-to-use__header">
+          <h3 class="section__title">How to use</h3>
+          <button id="close-how-to-use-btn" class="btn">Close</button>
+        </header>
+        <div class="how-to-use__step">
+          <h4 class="how-to-use__title">Expected input</h4>
+          <img
+            src="Resources/Images/expected-input.webp"
+            alt="Two text areas with input data, one for each table, no spaces between the values only between the columns, new line for each row"
+            width="900"
+            class="how-to-use__img"
+          />
         </div>
-        <button id="close-btn" class="btn">Close</button>
-        <button id="more-info-btn" class="btn">More Information</button>
-      </div>
-    </section>
+        <div class="how-to-use__step">
+          <h4 class="how-to-use__title">Expected output</h4>
+          <img
+            src="Resources/Images/expected-output.webp"
+            alt="Two tables with the output, table cell with the same value are highlighted in green, table cell with different values are highlighted in red, table row with no match has a red border, table row with a match has a green border"
+            width="900"
+            class="how-to-use__img"
+          />
+        </div>
+        <div class="how-to-use__step">
+          <h4 class="how-to-use__title">How to read the output</h4>
+          <div class="how-to-use__explanation">
+            <span class="highlight-td">Cell match</span>
+            <span class="highlight-td--first-success bg--secondary"
+              >Row match</span
+            >
+            <span class="highlight-td--fail">Cell not match</span>
+            <span class="highlight-td--first-fail bg--secondary"
+              >Row not match</span
+            >
+          </div>
+        </div>
+        <a
+          href="https://github.com/IvanoiuPetrut/tabelar-text-difference"
+          class="lnk how-to-use__link"
+          _target="blank"
+          >More information &#8594;</a
+        >
+      </section>
+      <div class="how-to-use__backdrop">ss</div>
+    </div>
     <div id="notification" class="notification">
       <p id="notification-text" class="notification__text">Succesful</p>
     </div>
