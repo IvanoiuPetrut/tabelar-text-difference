@@ -39,21 +39,37 @@
         </header>
         <div class="how-to-use__step">
           <h4 class="how-to-use__title">Expected input</h4>
-          <img
-            src="Resources/Images/expected-input.webp"
-            alt="Two text areas with input data, one for each table, no spaces between the values only between the columns, new line for each row"
-            width="900"
-            class="how-to-use__img"
-          />
+          <picture>
+            <source
+              srcset="Resources/Images/expected-input.webp"
+              media="(min-width: 1000px)"
+              class="how-to-use__img"
+              alt="Two text areas with input data, one for each table, no spaces between the values only between the columns, new line for each row"
+              width="800"
+            />
+            <img
+              src="Resources/Images/expected-input-small.webp"
+              alt="Two text areas with input data, one for each table, no spaces between the values only between the columns, new line for each row"
+              class="how-to-use__img"
+            />
+          </picture>
         </div>
         <div class="how-to-use__step">
           <h4 class="how-to-use__title">Expected output</h4>
-          <img
-            src="Resources/Images/expected-output.webp"
-            alt="Two tables with the output, table cell with the same value are highlighted in green, table cell with different values are highlighted in red, table row with no match has a red border, table row with a match has a green border"
-            width="900"
-            class="how-to-use__img"
-          />
+          <picture>
+            <source
+              srcset="Resources/Images/expected-output.webp"
+              media="(min-width: 1000px)"
+              class="how-to-use__img"
+              alt="Two tables with the output, table cell with the same value are highlighted in green, table cell with different values are highlighted in red, table row with no match has a red border, table row with a match has a green border"
+              width="900"
+            />
+            <img
+              src="Resources/Images/expected-output-small.webp"
+              alt="Two tables with the output, table cell with the same value are highlighted in green, table cell with different values are highlighted in red, table row with no match has a red border, table row with a match has a green border"
+              class="how-to-use__img"
+            />
+          </picture>
         </div>
         <div class="how-to-use__step">
           <h4 class="how-to-use__title">How to read the output</h4>
@@ -75,7 +91,7 @@
           >More information &#8594;</a
         >
       </section>
-      <div id="how-to-use-backdrop" class="how-to-use__backdrop">ss</div>
+      <div id="how-to-use-backdrop" class="how-to-use__backdrop"></div>
     </div>
     <div id="notification" class="notification">
       <p id="notification-text" class="notification__text">Succesful</p>
