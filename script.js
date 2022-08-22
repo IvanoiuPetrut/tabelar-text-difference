@@ -8,6 +8,7 @@ const clearBtn = document.getElementById("clear-btn");
 const howToUseBtn = document.getElementById("how-to-use-btn");
 const closeHowToUseBtn = document.getElementById("close-how-to-use-btn");
 const howToUseWrapper = document.getElementById("how-to-use-wrapper");
+const howToUseBackdrop = document.getElementById("how-to-use-backdrop");
 
 checkDiffBtn.addEventListener("click", function () {
   try {
@@ -73,9 +74,9 @@ closeHowToUseBtn.addEventListener("click", function () {
   toggleVisibility(document.getElementById("how-to-use-wrapper"));
 });
 
-howToUseWrapper.addEventListener("click", function (event) {
-  if (event.target == howToUseWrapper) {
-    toggleVisibility(howToUseWrapper);
+howToUseBackdrop.addEventListener("click", function (event) {
+  if (event.target == howToUseBackdrop) {
+    toggleVisibility(document.getElementById("how-to-use-wrapper"));
     console.log("clicked");
   }
 });
