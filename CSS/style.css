@@ -244,6 +244,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 2rem;
   margin-top: 5rem;
   background-color: var(--tertiary-bg-color);
   padding: 5rem 0;
@@ -290,7 +291,8 @@ body {
 .table__data {
   font-size: 1.8rem;
   border-collapse: separate;
-  width: 60%;
+  max-width: 40vw;
+  overflow-x: auto;
 }
 
 .table td {
@@ -306,13 +308,13 @@ body {
   background-color: var(--tertiary-bg-color);
 }
 
-.table:first-child {
+/* .table:first-child {
   justify-self: end;
 }
 
 .table:last-child {
   justify-self: start;
-}
+} */
 
 .btn {
   display: flex;
